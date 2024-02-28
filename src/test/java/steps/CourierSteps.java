@@ -4,9 +4,7 @@ import io.restassured.RestAssured;
 import pojo.Courier;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
-
 import static constant.Endpoints.*;
-import static io.restassured.RestAssured.given;
 
 
 public class CourierSteps {
@@ -23,7 +21,7 @@ public class CourierSteps {
 
     @Step("Логин курьера и получение ID для удаления")
     public static ValidatableResponse courierLogin(Courier courier){
-        return given()
+        return RestAssured.given()
                 .header("Content-type", "application/json")
                 .body(courier)
                 .when()
@@ -33,7 +31,7 @@ public class CourierSteps {
 
     @Step("Удаление курьера")
     public static void courierDelete(int id){
-        given()
+        RestAssured.given()
                 .delete(DELETE_COURIER + id)
                 .then();
     }
