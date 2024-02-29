@@ -3,7 +3,7 @@ package constant;
 import java.util.List;
 
 public class Data {
-    public static final String LOGIN = "ninjaKonoha";
+    public static final String LOGIN = "ninjaKonoha2";
     public static final String PASSWORD = "testPwd";
     public static final String FIRST_NAME = "Li";
 
@@ -13,9 +13,6 @@ public class Data {
 
     public static final String NONEXISTENT_LOGIN = "common";
     public static final String NONEXISTENT_PASSWORD = "common";
-
-    public static final String LOGIN_EXIST = "ninjagaiden";
-    public static final String PASSWORD_EXIST = "1234";
 
 
     public static final String LAST_NAME = "Uchiha";
@@ -29,4 +26,10 @@ public class Data {
     public static final List<String> COLOUR_GREY = List.of("GREY");
     public static final List<String> BOTH_COLOURS = List.of("BLACK","GREY");
     public static final List<String> WITHOUT_COLOURS = List.of("");
+
+    public static final int NONEXISTENT_ID = 6666;
+    public static final int NONEXISTENT_TRACK = 666666;
+
+    public static final int INCORRECT_COURIER_ID = 26852;
+    public static final int INCORRECT_ORDER_ID = 623412;
 }
