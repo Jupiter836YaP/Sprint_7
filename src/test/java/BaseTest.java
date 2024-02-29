@@ -9,6 +9,7 @@ import static constant.BaseUrl.BASE_URL;
 public class BaseTest {
     protected Integer courierId;
     protected Integer track;
+    protected Integer orderId;
 
     @Before
     public void setURL() {

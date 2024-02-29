@@ -35,4 +35,34 @@ public class OrderSteps {
                 .put(CANCEL_ORDER)
                 .then();
     }
+
+    @Step("Получить конкретный заказ")
+    public static ValidatableResponse getOrder(int track) {
+        return RestAssured.given()
+                .queryParam("t", track)
+                .get(GET_ORDER)
+                .then();
+    }
+
+    @Step("Получить конкретный заказ, но не передавая track")
+    public static ValidatableResponse getOrderEmpty() {
+        return RestAssured.given()
+                .get(GET_ORDER_EMPTY)
+                .then();
+    }
+
+    @Step("Принять заказ")
+    public static ValidatableResponse acceptOrder(int courierId, int orderId) {
+        return RestAssured.given()
+                .queryParam("courierId", courierId)
+                .put(String.format(ACCEPT_ORDER, orderId))
+                .then();
+    }
+
+    @Step("Принять заказ, но не передавая courierId")
+    public static ValidatableResponse acceptOrderWithoutCourierId(int orderId) {
+        return RestAssured.given()
+                .put(String.format(ACCEPT_ORDER, orderId))
+                .then();
+    }
 }

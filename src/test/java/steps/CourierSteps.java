@@ -30,9 +30,16 @@ public class CourierSteps {
     }
 
     @Step("Удаление курьера")
-    public static void courierDelete(int id){
-        RestAssured.given()
+    public static ValidatableResponse courierDelete(int id){
+        return RestAssured.given()
                 .delete(DELETE_COURIER + id)
+                .then();
+    }
+
+    @Step("Удаление курьера, без передачи id")
+    public static ValidatableResponse courierDeleteWithoutId(){
+        return RestAssured.given()
+                .delete(DELETE_COURIER)
                 .then();
     }
 
