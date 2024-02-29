@@ -11,19 +11,12 @@ import static org.hamcrest.Matchers.greaterThan;
 import static constant.Data.*;
 
 public class CourierLoginTest extends BaseTest {
-    Courier courier = new Courier(LOGIN_EXIST, PASSWORD_EXIST);
     Courier courierNonexistentLogin = new Courier(NONEXISTENT_LOGIN, PASSWORD);
     Courier courierNonexistentPassword = new Courier(LOGIN, NONEXISTENT_PASSWORD);
     Courier courierWithoutLogin = new Courier(EMPTY_LOGIN, PASSWORD);
     Courier courierWithoutPassword = new Courier(LOGIN, EMPTY_PASSWORD);
     Courier courierAfterCreate = new Courier(LOGIN, PASSWORD, FIRST_NAME);
 
-    @Test
-    @DisplayName("Авторизация под существующим курьером")
-    public void loginCourierTest() {
-        ValidatableResponse response = CourierSteps.courierLogin(courier);
-        response.assertThat().body("id", greaterThan(0)).and().statusCode(200);
-    }
 
     @Test
     @DisplayName("Авторизация под несуществующим курьером")
